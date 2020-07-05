@@ -1,25 +1,35 @@
-// find index of selected state vs user selection 
-// used index number (position in array) to return selected scoped in values onto html
+// find index of selected state vs user selection
+// used index number (position in array) to return selected values
 
-var stateChoice = document.querySelector(".browser-default");
-function changeHandler () {
-    console.log(stateChoice.value);
-}
+var userStateChoice = document.querySelector(".browser-default");
+var userStateChoiceValue =
+  userStateChoice.options[userStateChoice.selectedIndex].value;
 
-fetch('https://covidtracking.com/api/states') 
-    .then(function(response){
-        return response.json();
+console.log(userStateChoiceValue);
+
+function changeHandler() {
+  var selected = this.options[this.selectedIndex].value;
+
+  console.log("this is the State value :" + selected);
+
+  apiCall(selected);
+} //end changeHandler fct def
+
+function apiCall(stateCode) {
+  fetch("https://covidtracking.com/api/states")
+    .then(function (response) {
+      return response.json();
     })
-    .then(function(data) {
-        for(var i=0; i< data.length;i++) {
-            if (stateChoice = data[i].state){
-                console.log(data.indexOf(data[i].state))
-                console.log("hello");
-            }
-        
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        if ((stateCode == data[i].state)) {
+         
+          console.log("THE STATE YOU JUST PICKED: \n",data[i])
         }
-        console.log(data);
-    })
+      }
+      console.log(data);
+    
+    });
+} // end api call function definition
 
-
-    stateChoice.addEventListener("change", changeHandler) 
+userStateChoice.addEventListener("change", changeHandler);
