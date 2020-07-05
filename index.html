@@ -8,10 +8,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>COVID-19 DATA Thing pending</title>
@@ -23,8 +21,8 @@
         <div class="nav-wrapper valign-wrapper row">
           <h5 class="col s6">COVID-19 DATA</h5>
           <div class="col s6 right-align">
-            <button class="waves-effect waves-teal btn-flat valign-wrapper">
-              <span class="fas fa-bars"></span>
+            <button class="waves-effect waves-teal" id="menu">
+              <i class="material-icons" id="menu-icon">menu</i>
             </button>
           </div>
         </div>
@@ -91,8 +89,55 @@
           </div>
         </div>
       </div>
+      <div class="section row" id="data">
+        <div class="section col s7">
+          <div class="section col s12" id="current-date-data">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title grey-text">Today</span>
+                <div class="row">
+                  <ul class="col s6">
+                    <li>confirm:</li>
+                    <li>death:</li>
+                    <li>fatality rate:</li>
+                  </ul>
+                  <ul class="col s6">
+                    <li>number of uber call:</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section col s12" id="Selected-date-data">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title grey-text"
+                  >Date Select Through the Slider (DD/MM/YY)</span
+                >
+                <div class="row">
+                  <ul class="col s6">
+                    <li>confirm:</li>
+                    <li>death:</li>
+                    <li>fatality rate:</li>
+                  </ul>
+                  <ul class="col s6">
+                    <li>number of uber call:</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section col s5">
+          <div class="container"><h4>Container for the google map</h4></div>
+        </div>
+        <div class="section col s12">
+          <div class="container">
+            <h4 class="center-align">Container for graph</h4>
+          </div>
+        </div>
+      </div>
     </main>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
