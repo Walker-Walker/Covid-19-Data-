@@ -1,3 +1,7 @@
-h1 {
-    color: red;
+.nav-wrapper {
+  background: linear-gradient(to right, rgb(0, 111, 131), white);
+}
+#menu {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px;
 }
