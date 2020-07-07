@@ -30,8 +30,10 @@ function apiCall(stateCode) {
     });
 } // end api call function definition
 
-//-------------------------------- sign-in functin starts here --------------------------------//
-
-//--------------------------------- sign-in functin ends here ---------------------------------//
+//-------------------------------- sign-in function starts here --------------------------------//
+$(document).ready(function () {
+  $(".modal").modal();
+});
+//--------------------------------- sign-in function ends here ---------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
 // test
