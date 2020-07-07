@@ -22,15 +22,16 @@ function apiCall(stateCode) {
     })
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
-        if ((stateCode == data[i].state)) {
-         
-          console.log("THE STATE YOU JUST PICKED: \n",data[i])
+        if (stateCode == data[i].state) {
+          console.log("THE STATE YOU JUST PICKED: \n", data[i]);
         }
       }
       console.log(data);
-    
     });
 } // end api call function definition
 
+//-------------------------------- sign-in functin starts here --------------------------------//
+
+//--------------------------------- sign-in functin ends here ---------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
 // test
