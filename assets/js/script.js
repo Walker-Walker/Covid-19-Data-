@@ -1,6 +1,8 @@
 // find index of selected state vs user selection
 // used index number (position in array) to return selected values
 
+
+
 var userStateChoice = document.querySelector(".browser-default");
 var userStateChoiceValue =
   userStateChoice.options[userStateChoice.selectedIndex].value;
@@ -22,11 +24,63 @@ function apiCall(stateCode) {
     })
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
-        if (stateCode == data[i].state) {
-          console.log("THE STATE YOU JUST PICKED: \n", data[i]);
+        if ((stateCode == data[i].state)) {
+          var positive = data[i].positive;
+          var death = data[i].death;
+          var recovered = data[i].recovered;
+          
+          document.getElementById("confirmed-cases").innerHTML = "Tested Positive: " + positive;
+          document.getElementById("death").innerHTML = "Deaths: " + death;
+          document.getElementById("recovered").innerHTML = "Recovered: " + recovered;
+          
+          if (data[i].recovered == null) {
+            document.getElementById("recovered").innerHTML = "Recovered: Data Not Available"; 
+          }
+          if (data[i].death == null) {
+            document.getElementById("death").innerHTML = "Deaths: Data Not Available"; 
+          }
+          if (data[i].positive == null) {
+            document.getElementById("positive").innerHTML = "Tested Positive: Data Not Available"; 
+          }
+
+          console.log("Tested Positive: \n" ,positive);
+          console.log("Died: \n", death); 
+          console.log("Recovered: \n", recovered);
+          console.log("THE STATE YOU JUST PICKED: \n",data[i])
+
         }
+// start chart for api data 
+Highcharts.chart('container', {
+  chart: {
+      type: 'column',
+      styledMode: true,
+      options3d: {
+          enabled: true,
+          alpha: 15,
+          beta: 15,
+          depth: 50
+      }
+  },
+  title: {
+      text: ''
+  },
+  plotOptions: {
+      column: {
+          depth: 25
+      }
+  },
+  xAxis: {
+      categories: ['state', 'state', 'state', 'state',]
+  },
+  series: [{
+      data: [29.9, 71.5, 106.4, 129.2,],
+      colorByPoint: true
+  }]
+});
+
       }
       console.log(data);
+// <<<<<<< HEAD
     });
 } // end api call function definition
 
@@ -37,3 +91,15 @@ $(document).ready(function () {
 //--------------------------------- sign-in function ends here ---------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
 // test
+// =======
+ 
+    
+//     });
+// } // end api call function definition
+
+
+// userStateChoice.addEventListener("change", changeHandler);         
+// //Current Date 
+// //var currentDate = moment().format("dddd, MMMM Do YYYY");
+// //document.getElementsByClassName("card-title").innerHTML = "Today: " + currentDate;
+// >>>>>>> alex/api2
