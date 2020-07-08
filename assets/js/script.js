@@ -6,7 +6,10 @@
 var userStateChoice = document.querySelector(".browser-default");
 var userStateChoiceValue =
   userStateChoice.options[userStateChoice.selectedIndex].value;
-
+//-------------------------------- global parameter for the mailchimp function starts--------------------------------//
+let cta = document.getElementById("subscribe");
+let email = document.getElementById("user-email");
+//-------------------------------- global parameter for the mailchimp function ends--------------------------------//
 console.log(userStateChoiceValue);
 
 function changeHandler() {
@@ -89,6 +92,15 @@ $(document).ready(function () {
   $(".modal").modal();
 });
 //--------------------------------- sign-in function ends here ---------------------------------//
+//-------------------------------- mailchimp function starts here --------------------------------//
+cta.addEventListener("click", (event) => {
+  event.preventDefault();
+  debugger;
+  if (email.value == null || email.vlue == "") {
+    alert("please provide an valid email address");
+  }
+});
+//-------------------------------- mailchimp function ends here --------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
 // test
 // =======
