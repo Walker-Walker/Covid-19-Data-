@@ -42,7 +42,9 @@ $(document).ready(function () {
 cta.addEventListener("click", (event) => {
   event.preventDefault();
   debugger;
-  console.log("cta is working");
+  if (email.value == null || email.vlue == "") {
+    alert("please provide an valid email address");
+  }
 });
 //-------------------------------- mailchimp function ends here --------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
