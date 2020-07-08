@@ -49,6 +49,35 @@ function apiCall(stateCode) {
           console.log("THE STATE YOU JUST PICKED: \n",data[i])
 
         }
+// start chart for api data 
+Highcharts.chart('container', {
+  chart: {
+      type: 'column',
+      styledMode: true,
+      options3d: {
+          enabled: true,
+          alpha: 15,
+          beta: 15,
+          depth: 50
+      }
+  },
+  title: {
+      text: ''
+  },
+  plotOptions: {
+      column: {
+          depth: 25
+      }
+  },
+  xAxis: {
+      categories: ['state', 'state', 'state', 'state',]
+  },
+  series: [{
+      data: [29.9, 71.5, 106.4, 129.2,],
+      colorByPoint: true
+  }]
+});
+
       }
       console.log(data);
  
@@ -56,6 +85,8 @@ function apiCall(stateCode) {
     });
 } // end api call function definition
 
-userStateChoice.addEventListener("change", changeHandler);
-//              var currentDate = moment().format("dddd, MMMM Do YYYY");
+
+userStateChoice.addEventListener("change", changeHandler);         
+//Current Date 
+//var currentDate = moment().format("dddd, MMMM Do YYYY");
 //document.getElementsByClassName("card-title").innerHTML = "Today: " + currentDate;
