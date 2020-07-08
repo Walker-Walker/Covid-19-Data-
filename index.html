@@ -39,15 +39,15 @@
        <!-- Modal Structure starts-->
        <div id="modal1" class="modal" style="width: 40%;">
         <div class="modal-content">
-          <h5 style="margin-bottom: 1.5rem;">Sign Up</h5>
+          <h5 style="margin-bottom: 1.5rem;">Subscribe</h5>
           <div style="width: 80%; margin: 0 auto;" class="input-field">
             <input id="uid" type="text" class="validate" />
             <label for="uid">Enter UserID</label>
           </div>
           <br />
           <div style="width: 80%; margin: 0 auto;" class="input-field">
-            <input id="user-email" type="email" class="validate" />
-            <label for="user-email">Enter User Email</label>
+            <input id="user-email" type="email" class="validate" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+            <label for="user-email">Enter User Email (required) </label>
           </div>
           <br />
           <div style="width: 80%; margin: 0 auto;" class="input-field">
@@ -57,9 +57,9 @@
         </div>
         <div class="modal-footer">
           <button
-            class="wave-effect waves-teal btn modal-trigger blue white-text"
+            class="wave-effect modal-close waves-teal btn modal-trigger blue white-text"
           >
-            Login Now
+            Subscribe
           </button>
           <button class="modal-close wave-effect wave-green btn-flat">
             Cancel

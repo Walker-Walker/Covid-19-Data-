@@ -1,0 +1,22 @@
+{
+  "name": "covid-19dataus",
+  "version": "1.0.0",
+  "description": "covid-19 data searching site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Walker-Walker/PROJECT-1.git"
+  },
+  "keywords": [
+    "1234"
+  ],
+  "author": "ruohan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Walker-Walker/PROJECT-1/issues"
+  },
+  "homepage": "https://github.com/Walker-Walker/PROJECT-1#readme"
+}
