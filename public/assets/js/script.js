@@ -5,26 +5,22 @@
 // or use local storage to set light and dark mode
 // create chart to compare two states data, california vs nevada ...with all data positive, death, recovered.
 
-var userStateChoice = document.querySelector(".browser-default");
-var userStateChoiceValue =
-  userStateChoice.options[userStateChoice.selectedIndex].value;
 //-------------------------------- global parameter for the mailchimp function starts--------------------------------//
 let cta = document.getElementById("subscribe");
 
 let email = document.getElementById("user-email");
 
 //-------------------------------- global parameter for the mailchimp function ends--------------------------------//
-console.log(userStateChoiceValue);
 
 function changeHandler() {
   var selected = this.options[this.selectedIndex].value;
-
+  var chartNumber = this.attributes["chart"].value;    // used this.attributes to target attribute in html to differentiate between both charts.
   console.log("this is the State value :" + selected);
 
-  apiCall(selected);
+  apiCall(selected, chartNumber);  
 } //end changeHandler fct def
 
-function apiCall(stateCode) {
+function apiCall(stateCode, chartNumber) {
   fetch("https://covidtracking.com/api/states")
     .then(function (response) {
       return response.json();
@@ -36,22 +32,22 @@ function apiCall(stateCode) {
           var death = data[i].death;
           var recovered = data[i].recovered;
 
-          document.getElementById("confirmed-cases").innerHTML =
+          document.getElementById("confirmed-cases" + chartNumber).innerHTML =
             "Tested Positive: " + positive;
-          document.getElementById("death").innerHTML = "Deaths: " + death;
-          document.getElementById("recovered").innerHTML =
+          document.getElementById("death" + chartNumber).innerHTML = "Deaths: " + death;
+          document.getElementById("recovered" + chartNumber).innerHTML =
             "Recovered: " + recovered;
 
           if (data[i].recovered == null) {
-            document.getElementById("recovered").innerHTML =
+            document.getElementById("recovered" + chartNumber).innerHTML =
               "Recovered: Data Not Available";
           }
           if (data[i].death == null) {
-            document.getElementById("death").innerHTML =
+            document.getElementById("death" + chartNumber).innerHTML =
               "Deaths: Data Not Available";
           }
           if (data[i].positive == null) {
-            document.getElementById("positive").innerHTML =
+            document.getElementById("positive" + chartNumber).innerHTML =
               "Tested Positive: Data Not Available";
           }
 
@@ -61,7 +57,7 @@ function apiCall(stateCode) {
           console.log("THE STATE YOU JUST PICKED: \n", data[i]);
         }
         // start chart for api data
-        Highcharts.chart("container", {
+        Highcharts.chart("container" + chartNumber, {
           chart: {
             type: "column",
             styledMode: true,
@@ -121,4 +117,5 @@ cta.addEventListener("click", (event) => {
   }
 });
 //-------------------------------- mailchimp function ends here --------------------------------//
-userStateChoice.addEventListener("change", changeHandler);
+document.getElementById("dropDown2").addEventListener("change", changeHandler);
+document.getElementById("dropDown1").addEventListener("change", changeHandler);

@@ -63,7 +63,7 @@
       <div class="row">
         <div class="section col s3">
           <label>Check Data by State</label>
-          <select class="browser-default z-depth-2">
+          <select class="browser-default z-depth-2" id="dropDown1" chart="1">
             <option value="" disabled selected>Select State</option>
             <option value="AL">Alabama</option>
             <option value="AZ">Alaska</option>
@@ -127,9 +127,9 @@
               <span class="card-title grey-text">Accumulated Data</span>
               <div class="row">
                 <ul class="col s6">
-                  <li id="confirmed-cases">Tested Positive:</li>
-                  <li id="death">Deaths:</li>
-                  <li id="recovered">Recovered:</li>
+                  <li id="confirmed-cases1">Tested Positive:</li>
+                  <li id="death1">Deaths:</li>
+                  <li id="recovered1">Recovered:</li>
                 </ul>
                 <ul class="col s6">
                   <li></li>
@@ -139,9 +139,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="section col s3">
+      <div class="section col s3">
           <label>Check Data by State</label>
-          <select class="browser-default z-depth-2">
+          <select class="browser-default  z-depth-2" id="dropDown2" chart="2">
             <option value="" disabled selected>Select State</option>
             <option value="AL">Alabama</option>
             <option value="AZ">Alaska</option>
@@ -203,9 +203,9 @@
                 <span class="card-title grey-text">Accumulated Data</span>
                 <div class="row">
                   <ul class="col s6">
-                    <li id="confirmed-cases">Tested Positive:</li>
-                    <li id="death">Deaths:</li>
-                    <li id="recovered">Recovered:</li>
+                    <li id="confirmed-cases2">Tested Positive:</li>
+                    <li id="death2">Deaths:</li>
+                    <li id="recovered2">Recovered:</li>
                   </ul>
                   <ul class="col s6">
                     <li></li>
@@ -214,7 +214,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       <!-- <div class="section col s7">
         <div class="section col s12" id="Selected-date-data">
           <div class="card">
@@ -236,7 +236,11 @@
       </div> -->
       <div class="section col s12">
         <!--container for chart-->
-        <div id="container"></div>
+        <div id="container1"></div>
+      </div>
+      <div class="section col s12">
+        <!--container for chart-->
+        <div id="container2"></div>
       </div>
     </div>
   </main>
