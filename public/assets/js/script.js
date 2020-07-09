@@ -1,10 +1,20 @@
 // find index of selected state vs user selection
 // used index number (position in array) to return selected values
+
+
+// use local storage to store data of state and comparison so when user reloades screen its data is still there
+// or use local storage to set light and dark mode
+// create chart to compare two states data, california vs nevada ...with all data positive, death, recovered.
+
+
 var userStateChoice = document.querySelector(".browser-default");
 var userStateChoiceValue =
   userStateChoice.options[userStateChoice.selectedIndex].value;
 //-------------------------------- global parameter for the mailchimp function starts--------------------------------//
 let cta = document.getElementById("subscribe");
+
+
+let email = document.getElementById("user-email");
 
 //-------------------------------- global parameter for the mailchimp function ends--------------------------------//
 console.log(userStateChoiceValue);
@@ -66,26 +76,28 @@ function apiCall(stateCode) {
             },
           },
           title: {
-            text: "",
+
+            text: "Covid-19 Accumulated Data",
           },
           plotOptions: {
             column: {
-              depth: 25,
+              depth: 30,
             },
           },
           xAxis: {
-            categories: ["state", "state", "state", "state"],
+            categories: ["Deaths", "Positive", "Recovered", ""],
           },
           series: [
             {
-              data: [29.9, 71.5, 106.4, 129.2],
+              data: [death, positive, recovered],
+
               colorByPoint: true,
             },
           ],
         });
       }
       console.log(data);
-      // <<<<<<< HEAD
+
     });
 } // end api call function definition
 
@@ -97,6 +109,7 @@ $(document).ready(function () {
 //-------------------------------- mailchimp function starts here --------------------------------//
 cta.addEventListener("click", (event) => {
   event.preventDefault();
+
   let email = document.getElementById("user-email").value;
   if (email == null || email == "") {
     alert("please provide an valid email address!");
@@ -111,18 +124,12 @@ cta.addEventListener("click", (event) => {
         console.log("it works");
       }
     });
+
+  debugger;
+  if (email.value == null || email.vlue == "") {
+    alert("please provide an valid email address");
+
   }
 });
 //-------------------------------- mailchimp function ends here --------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
-// test
-// =======
-
-//     });
-// } // end api call function definition
-
-// userStateChoice.addEventListener("change", changeHandler);
-// //Current Date
-// //var currentDate = moment().format("dddd, MMMM Do YYYY");
-// //document.getElementsByClassName("card-title").innerHTML = "Today: " + currentDate;
-// >>>>>>> alex/api2
