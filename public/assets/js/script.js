@@ -1,16 +1,21 @@
 // find index of selected state vs user selection
 // used index number (position in array) to return selected values
 
+
 // use local storage to store data of state and comparison so when user reloades screen its data is still there
 // or use local storage to set light and dark mode
 // create chart to compare two states data, california vs nevada ...with all data positive, death, recovered.
+
 
 var userStateChoice = document.querySelector(".browser-default");
 var userStateChoiceValue =
   userStateChoice.options[userStateChoice.selectedIndex].value;
 //-------------------------------- global parameter for the mailchimp function starts--------------------------------//
 let cta = document.getElementById("subscribe");
+
+
 let email = document.getElementById("user-email");
+
 //-------------------------------- global parameter for the mailchimp function ends--------------------------------//
 console.log(userStateChoiceValue);
 
@@ -71,6 +76,7 @@ function apiCall(stateCode) {
             },
           },
           title: {
+
             text: "Covid-19 Accumulated Data",
           },
           plotOptions: {
@@ -84,13 +90,14 @@ function apiCall(stateCode) {
           series: [
             {
               data: [death, positive, recovered],
+
               colorByPoint: true,
             },
           ],
         });
       }
       console.log(data);
-    
+
     });
 } // end api call function definition
 
@@ -102,9 +109,26 @@ $(document).ready(function () {
 //-------------------------------- mailchimp function starts here --------------------------------//
 cta.addEventListener("click", (event) => {
   event.preventDefault();
+
+  let email = document.getElementById("user-email").value;
+  if (email == null || email == "") {
+    alert("please provide an valid email address!");
+  } else {
+    let fetchData = {
+      method: "POST",
+      body: JSON.stringify({ email: email, js: true }),
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch("/subscribe", fetchData).then((res) => {
+      if (res.ok) {
+        console.log("it works");
+      }
+    });
+
   debugger;
   if (email.value == null || email.vlue == "") {
     alert("please provide an valid email address");
+
   }
 });
 //-------------------------------- mailchimp function ends here --------------------------------//

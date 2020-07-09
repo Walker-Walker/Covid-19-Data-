@@ -26,34 +26,36 @@
       </div>
     </nav>
     <!-- Modal Structure starts-->
-    <div id="modal1" class="modal" style="width: 40%;">
-      <div class="modal-content">
-        <h5 style="margin-bottom: 1.5rem;">Subscribe</h5>
-        <div style="width: 80%; margin: 0 auto;" class="input-field">
-          <input id="uid" type="text" class="validate" />
-          <label for="uid">Name</label>
+      <div id="modal1" class="modal" style="width: 40%;">
+        <div class="modal-content">
+          <h5 style="margin-bottom: 1.5rem;">Subscribe</h5>
+          <p>We know this is a tough time. But don't forget that we are in this together! Subscribe to keep yourself up to date! </p>
+          <div style="width: 80%; margin: 0 auto;" class="input-field">
+            <input id="uid" type="text" class="validate" />
+            <label for="uid">Name</label>
+          </div>
+          <br />
+          <div style="width: 80%; margin: 0 auto;" class="input-field">
+            <input id="user-email" type="email" class="validate" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+            <label for="user-email">Email (required) </label>
+          </div>
+          <br />
+          <div style="width: 80%; margin: 0 auto;" class="input-field">
+            <input id="pass" type="password" class="validate" />
+            <label for="pass">Create Password</label>
+          </div>
         </div>
-        <br />
-        <div style="width: 80%; margin: 0 auto;" class="input-field">
-          <input id="user-email" type="email" class="validate" required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
-          <label for="user-email">Email (required) </label>
-        </div>
-        <br />
-        <div style="width: 80%; margin: 0 auto;" class="input-field">
-          <input id="pass" type="password" class="validate" />
-          <label for="pass">Create Password</label>
+        <div class="modal-footer">
+          <button
+            class="wave-effect modal-close waves-teal btn modal-trigger blue white-text" id="subscribe"
+          >
+            Subscribe
+          </button>
+          <button class="modal-close wave-effect wave-green btn-flat">
+            Cancel
+          </button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="wave-effect modal-close waves-teal btn modal-trigger blue white-text" id="subscribe">
-          Subscribe
-        </button>
-        <button class="modal-close wave-effect wave-green btn-flat">
-          Cancel
-        </button>
-      </div>
-    </div>
     <!-- Modal Structure ends -->
   </header>
   <main class="constainer">
@@ -166,13 +168,9 @@
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-
-
   <!--script tags for local JS and CDN link for Materialize-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src=./assets/js/script.js> </script>
 </body>
 </head>
-
 </html>
