@@ -1,4 +1,4 @@
-# Group Project
+# COVID-19 DATA
 
 ## Purpose
 
