@@ -2,18 +2,26 @@
 
 ## Purpose
 
--
+```bash
+This application is to check COVID-19 data by states
+```
 
 ## Built with
 
+```bash
 - HTML
 - CSS
 - JavaScript
+- Node.js
+```
 
 ## Website
+https://covid-19-data-data.herokuapp.com/
 
 ## Screenshot
 
-## Contribution
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-Made with ❤️ by Alex, Chantal, Jessica, and Ruohan
+## Contribution
+Made with ❤️ by Alex Walker, Chantal Eshghipour, Jessica Lam, and Ruohan Wang
