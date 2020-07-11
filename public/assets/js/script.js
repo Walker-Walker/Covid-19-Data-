@@ -19,7 +19,6 @@ console.log(userStateChoiceValue);
 function changeHandler() {
   var selected = this.options[this.selectedIndex].value;
 
-  console.log("this is the State value :" + selected);
 
   apiCall(selected);
 } //end changeHandler fct def
@@ -55,10 +54,7 @@ function apiCall(stateCode) {
               "Tested Positive: Data Not Available";
           }
 
-          console.log("Tested Positive: \n", positive);
-          console.log("Died: \n", death);
-          console.log("Recovered: \n", recovered);
-          console.log("THE STATE YOU JUST PICKED: \n", data[i]);
+          
         }
         // start chart for api data
         Highcharts.chart("container", {
@@ -92,7 +88,7 @@ function apiCall(stateCode) {
           ],
         });
       }
-      console.log(data);
+      
     });
 } // end api call function definition
 
