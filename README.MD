@@ -19,6 +19,7 @@ This application is to check COVID-19 data by states
 https://covid-19-data-data.herokuapp.com/
 
 ## Screenshot
+![](public/pictures/App Screenshot.JPG/screenshot.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
