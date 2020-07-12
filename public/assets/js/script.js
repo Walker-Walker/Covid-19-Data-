@@ -10,19 +10,14 @@ var userStateChoiceValue =
   userStateChoice.options[userStateChoice.selectedIndex].value;
 //-------------------------------- global parameter for the mailchimp function starts--------------------------------//
 let cta = document.getElementById("subscribe");
-
 let email = document.getElementById("user-email");
-
 //-------------------------------- global parameter for the mailchimp function ends--------------------------------//
 console.log(userStateChoiceValue);
-
 function changeHandler() {
   var selected = this.options[this.selectedIndex].value;
-
-
   apiCall(selected);
-} //end changeHandler fct def
-
+}
+//end changeHandler fct def
 function apiCall(stateCode) {
   fetch("https://covidtracking.com/api/states")
     .then(function (response) {
@@ -34,13 +29,11 @@ function apiCall(stateCode) {
           var positive = data[i].positive;
           var death = data[i].death;
           var recovered = data[i].recovered;
-
           document.getElementById("confirmed-cases").innerHTML =
             "Tested Positive: " + positive;
           document.getElementById("death").innerHTML = "Deaths: " + death;
           document.getElementById("recovered").innerHTML =
             "Recovered: " + recovered;
-
           if (data[i].recovered == null) {
             document.getElementById("recovered").innerHTML =
               "Recovered: Data Not Available";
@@ -53,8 +46,6 @@ function apiCall(stateCode) {
             document.getElementById("positive").innerHTML =
               "Tested Positive: Data Not Available";
           }
-
-          
         }
         // start chart for api data
         Highcharts.chart("container", {
@@ -82,16 +73,14 @@ function apiCall(stateCode) {
           series: [
             {
               data: [death, positive, recovered],
-
               colorByPoint: true,
             },
           ],
         });
       }
-      
     });
-} // end api call function definition
-
+}
+// end api call function definition
 //-------------------------------- sign-in function starts here --------------------------------//
 $(document).ready(function () {
   $(".modal").modal();
@@ -101,6 +90,8 @@ $(document).ready(function () {
 cta.addEventListener("click", (event) => {
   event.preventDefault();
   let email = document.getElementById("user-email").value;
+  // prepared for local storage
+  let userName = document.getElementById("uid").value;
   if (email == null || email == "") {
     alert("please provide an valid email address!");
   } else {
@@ -115,6 +106,21 @@ cta.addEventListener("click", (event) => {
       }
     });
   }
+  // set Item to LocalSotrage
+  if (userName != null || userName != "") {
+    localStorage.setItem("Covid-19Data-userName", JSON.stringify(userName));
+  }
+  // load LocalStorage to check userName update
+  loadLocalStorage();
 });
+//--------------------------------- localStorage function starts here ---------------------------------//
+var loadLocalStorage = function () {
+  let userName = JSON.parse(localStorage.getItem("Covid-19Data-userName"));
+  if ((userName != "") & (userName != null)) {
+    $("#siteTitle").html(userName + ", welcome back to the COVID-19 Data");
+  }
+};
+//----------------------------------- localStorage function ends here ---------------------------------//
 //-------------------------------- mailchimp function ends here --------------------------------//
 userStateChoice.addEventListener("change", changeHandler);
+loadLocalStorage();
